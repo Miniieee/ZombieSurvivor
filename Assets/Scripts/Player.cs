@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private PlayerMovement playerMovement;
+    [SerializeField] private float playerSpeed;
+
+    private void Start() {
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Update() {
+        Vector2 movementVectorNormalized = playerMovement.GetInputVectorNormalized();
+        Vector3 direction = new Vector3(movementVectorNormalized.x, movementVectorNormalized.y, 0f);
+        transform.position += direction * Time.deltaTime * playerSpeed;
     }
 }

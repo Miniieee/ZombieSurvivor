@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private InputActions inputActions;
+    private Vector2 inputVector;
+
+    private void Awake() {
+        inputActions = new InputActions();
+        inputActions.Enable();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public Vector2 GetInputVectorNormalized(){
+        inputVector = inputActions.Player.Move.ReadValue<Vector2>();
+        Vector2 inputVectorNormailzed = inputVector.normalized;
+        return inputVectorNormailzed;
     }
 }
