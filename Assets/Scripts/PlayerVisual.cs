@@ -13,14 +13,15 @@ public class PlayerVisual : MonoBehaviour
     private void Update() {
         Vector2 movementVectorNormalized = playerMovement.GetInputVectorNormalized();
 
-        // flip sprite
-        if (movementVectorNormalized.x < 0f)
+        bool hasHorizontalspeed = Mathf.Abs(movementVectorNormalized.x) > Mathf.Epsilon;
+
+        if (hasHorizontalspeed)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            // flip sprite
+            transform.localScale = new Vector3(Mathf.Sign(movementVectorNormalized.x), 1f, 1f);
         }
-        else
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
+        
+        
+        
     }
 }
