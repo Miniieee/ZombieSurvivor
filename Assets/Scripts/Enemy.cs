@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float speed = 2f;
+    [SerializeField] private float speed;
+    [SerializeField] private EnemySO enemySO;
     private Player player;
+    private SpriteRenderer enemySpriteRenderer;
 
     void Start()
     {
         player = FindObjectOfType<Player>();
+        enemySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        enemySpriteRenderer.sprite = enemySO.enemySprite;
+        speed = enemySO.enemySpeed;
     }
 
     
