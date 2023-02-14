@@ -21,6 +21,12 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+
+        TurnSpriteToMovementDirection();
+    }
+
+    private void TurnSpriteToMovementDirection()
+    {
         Vector3 dir = player.transform.position - transform.position;
         Vector3 dirNormalized = dir.normalized;
 
