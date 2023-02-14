@@ -21,5 +21,9 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        Vector3 dir = player.transform.position - transform.position;
+        Vector3 dirNormalized = dir.normalized;
+
+        transform.localScale = new Vector3(Mathf.Sign(dirNormalized.x), 1f, 1f);
     }
 }
