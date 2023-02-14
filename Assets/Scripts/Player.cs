@@ -7,6 +7,17 @@ public class Player : MonoBehaviour
     private PlayerMovement playerMovement;
     [SerializeField] private float playerSpeed;
 
+
+    /*TODO
+        - Get a collider
+        - Enemies collides
+        - Create health system
+        - Create damage system
+        - Level up system
+        - Power ups
+        - Drops
+    */
+
     private void Start() {
         playerMovement = GetComponent<PlayerMovement>();
     }
