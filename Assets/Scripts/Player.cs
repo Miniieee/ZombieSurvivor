@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     private PlayerMovement playerMovement;
     [SerializeField] private float playerSpeed;
+    [SerializeField] GameObject projectile;
 
 
     /*TODO
@@ -19,7 +20,17 @@ public class Player : MonoBehaviour
     */
 
     private void Start() {
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerMovement>(); 
+        StartCoroutine(ShootProjectile());
+    }
+
+    private IEnumerator ShootProjectile(){
+        while (true)
+        {
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+        }
+        
     }
 
     private void Update() {

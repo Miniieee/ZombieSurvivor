@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float health;
     [SerializeField] private EnemySO enemySO;
     private Player player;
     private SpriteRenderer enemySpriteRenderer;
@@ -15,6 +16,7 @@ public class Enemy : MonoBehaviour
         enemySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         enemySpriteRenderer.sprite = enemySO.enemySprite;
         speed = enemySO.enemySpeed;
+        health = enemySO.enemyHelath;
     }
 
     
@@ -23,6 +25,7 @@ public class Enemy : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 
         TurnSpriteToMovementDirection();
+        CheckHealth();
     }
 
     private void TurnSpriteToMovementDirection()
@@ -31,5 +34,16 @@ public class Enemy : MonoBehaviour
         Vector3 dirNormalized = dir.normalized;
 
         transform.localScale = new Vector3(Mathf.Sign(dirNormalized.x), 1f, 1f);
+    }
+
+    public void GetDemage(int _damage){
+        health -= _damage;
+    }
+
+    private void CheckHealth(){
+        if (health <= Mathf.Epsilon)
+        {
+            Destroy(gameObject);
+        }
     }
 }

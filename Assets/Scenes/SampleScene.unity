@@ -37857,6 +37857,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1438986602
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2539153849897421680, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
+      propertyPath: m_Name
+      value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539153849897421682, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539153849897421682, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539153849897421682, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539153849897421682, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539153849897421682, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539153849897421682, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539153849897421682, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539153849897421682, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539153849897421682, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539153849897421682, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539153849897421682, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
 --- !u!1 &1993710997
 GameObject:
   m_ObjectHideFlags: 0
@@ -42116,6 +42173,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1386712925, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629553237879614760, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 629553237879614772, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -42164,26 +42229,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 629553239565122997, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
-      propertyPath: m_Size.x
-      value: 2.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 629553239565122997, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
-      propertyPath: m_Size.y
-      value: 2.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 629553239565122997, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
-      propertyPath: m_Sprite
+    - target: {fileID: 629553237879614775, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
+      propertyPath: projectile
       value: 
-      objectReference: {fileID: 21300000, guid: 009251245012eac4eb905e2a2f3b038c, type: 3}
-    - target: {fileID: 629553239565122997, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 629553239565122997, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2539153849897421680, guid: 6e75c176b538dae49acc9642a2bf4c9d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
 --- !u!1001 &4728086907896137483
@@ -42193,18 +42242,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4728086908932967319, guid: 90517eef7ce48d046b406913a48c84a9, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4728086908932967319, guid: 90517eef7ce48d046b406913a48c84a9, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c8536aa41dc7c1c4f8fae9497ec30f9c, type: 3}
-    - target: {fileID: 4728086908932967319, guid: 90517eef7ce48d046b406913a48c84a9, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4728086909199516388, guid: 90517eef7ce48d046b406913a48c84a9, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -42249,10 +42286,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4728086909199516389, guid: 90517eef7ce48d046b406913a48c84a9, type: 3}
-      propertyPath: enemySO
-      value: 
-      objectReference: {fileID: 11400000, guid: d3eabf39dc6b2fc4091544efd5218d7d, type: 2}
     - target: {fileID: 4728086909199516390, guid: 90517eef7ce48d046b406913a48c84a9, type: 3}
       propertyPath: m_Name
       value: Enemy
