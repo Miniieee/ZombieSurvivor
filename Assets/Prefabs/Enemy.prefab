@@ -130,3 +130,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  enemySO: {fileID: 11400000, guid: d3eabf39dc6b2fc4091544efd5218d7d, type: 2}
