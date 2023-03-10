@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 1
+  damage: 11
 --- !u!1 &6561413160332146273
 GameObject:
   m_ObjectHideFlags: 0

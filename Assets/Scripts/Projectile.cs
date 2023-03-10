@@ -5,37 +5,61 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float projectileSpeed = 1f;
-    private Enemy[] selectedEnemies;
-    private float distance;
+    [SerializeField] private float damage = 11f;
+    private Enemy[] enemies;
     private float distanceFromEnemy;
-    private float currentDistance;
-    private Enemy selectedEnemy;
+    private float currentDistanceFromPlayer;
+    private Enemy selectedEnemy = null;
 
     
     void Start()
     {
-        distance = Mathf.Infinity;
-        selectedEnemies = FindObjectsOfType<Enemy>();
-        foreach (Enemy _enemy in selectedEnemies)
+        distanceFromEnemy = Mathf.Infinity;
+        enemies = FindObjectsOfType<Enemy>();
+
+        //if no enemies found destroys itself and returns
+        if (enemies == null)
         {
-            currentDistance = Vector3.Distance(transform.position, _enemy.transform.position);
-            if (currentDistance < distance)
-            {
-                selectedEnemy = _enemy;
-            }
+            Destroy(gameObject);
+            return;
         }
+
+        foreach (Enemy enemy in enemies)
+        {
+                float currentDistanceFromPlayer = Vector3.Distance(transform.position, enemy.transform.position);
+                bool isEnemySelectedAlready = enemy.GetSelectedStatus();
+
+                if (currentDistanceFromPlayer < distanceFromEnemy && !isEnemySelectedAlready)
+                {
+                    enemy.SetSelectedState();
+                    distanceFromEnemy = currentDistanceFromPlayer;
+                    selectedEnemy = enemy;
+                }
+        }    
     }
 
     
     void Update()
     {
-        Vector3 dir = selectedEnemy.transform.position - transform.position;
-        transform.position += dir * projectileSpeed * Time.deltaTime;
-        distanceFromEnemy = Vector3.Distance(transform.position, selectedEnemy.transform.position);
-
-        if (distanceFromEnemy < Mathf.Epsilon)
+        if (selectedEnemy != null)
         {
-            Debug.Log("damaged by " + selectedEnemy.name);
+            Vector3 dir = selectedEnemy.transform.position - transform.position;
+            transform.position += dir * projectileSpeed * Time.deltaTime;
+
+            distanceFromEnemy = Vector3.Distance(transform.position, selectedEnemy.transform.position);
+
+            if (distanceFromEnemy <= 1f)
+            {
+                Debug.Log("damaged by " + selectedEnemy.name);
+                selectedEnemy.GetDamage(damage);
+                Destroy(gameObject);
+            }
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        
     }
 }
