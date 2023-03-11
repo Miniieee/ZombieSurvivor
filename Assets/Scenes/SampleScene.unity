@@ -37477,6 +37477,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 629553237879614773, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
   m_PrefabInstance: {fileID: 629553237770087608}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &173196787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5322263875436505684, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
+  m_PrefabInstance: {fileID: 629553237770087608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &173196789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173196787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00804826193cc4b4cb25d30f03d10708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 7357528071733344979, guid: 3a5d81954016aff4b966e6bac29f62f2, type: 3}
 --- !u!1 &468640904
 GameObject:
   m_ObjectHideFlags: 0
@@ -42117,6 +42135,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 24412155158169946, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
+      propertyPath: damage
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 24412155158169946, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
+      propertyPath: detectionRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 24412155158169946, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 629553237879614772, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -42165,10 +42195,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 629553237879614775, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 7357528071733344979, guid: 3a5d81954016aff4b966e6bac29f62f2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c508e95a125f9eb4783ad1f96cd86e6d, type: 3}
 --- !u!1001 &4728086907896137483
@@ -42178,18 +42204,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4728086908932967319, guid: 90517eef7ce48d046b406913a48c84a9, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4728086908932967319, guid: 90517eef7ce48d046b406913a48c84a9, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c8536aa41dc7c1c4f8fae9497ec30f9c, type: 3}
-    - target: {fileID: 4728086908932967319, guid: 90517eef7ce48d046b406913a48c84a9, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4728086909199516388, guid: 90517eef7ce48d046b406913a48c84a9, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -42234,10 +42248,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4728086909199516389, guid: 90517eef7ce48d046b406913a48c84a9, type: 3}
-      propertyPath: enemySO
-      value: 
-      objectReference: {fileID: 11400000, guid: d3eabf39dc6b2fc4091544efd5218d7d, type: 2}
     - target: {fileID: 4728086909199516390, guid: 90517eef7ce48d046b406913a48c84a9, type: 3}
       propertyPath: m_Name
       value: Enemy

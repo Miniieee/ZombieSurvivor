@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float projectileSpeed = 1f;
-    [SerializeField] private float damage = 11f;
+    [SerializeField] private int damage = 11;
     private Enemy[] enemies;
     private float distanceFromEnemy;
     private float currentDistanceFromPlayer;
@@ -27,11 +27,9 @@ public class Projectile : MonoBehaviour
         foreach (Enemy enemy in enemies)
         {
                 float currentDistanceFromPlayer = Vector3.Distance(transform.position, enemy.transform.position);
-                bool isEnemySelectedAlready = enemy.GetSelectedStatus();
 
-                if (currentDistanceFromPlayer < distanceFromEnemy && !isEnemySelectedAlready)
+                if (currentDistanceFromPlayer < distanceFromEnemy)
                 {
-                    enemy.SetSelectedState();
                     distanceFromEnemy = currentDistanceFromPlayer;
                     selectedEnemy = enemy;
                 }
@@ -43,15 +41,18 @@ public class Projectile : MonoBehaviour
     {
         if (selectedEnemy != null)
         {
-            Vector3 dir = selectedEnemy.transform.position - transform.position;
-            transform.position += dir * projectileSpeed * Time.deltaTime;
+            /*Vector3 dir = selectedEnemy.transform.position - transform.position;
+            transform.position += dir * projectileSpeed * Time.deltaTime;*/
+
+            transform.position = Vector3.MoveTowards(transform.position, selectedEnemy.transform.position, projectileSpeed * Time.deltaTime);
 
             distanceFromEnemy = Vector3.Distance(transform.position, selectedEnemy.transform.position);
 
-            if (distanceFromEnemy <= 1f)
+            if (transform.position == selectedEnemy.transform.position)
             {
-                Debug.Log("damaged by " + selectedEnemy.name);
+                Debug.Log("reached Player");
                 selectedEnemy.GetDamage(damage);
+                Debug.Log("sent a damage request");
                 Destroy(gameObject);
             }
         }

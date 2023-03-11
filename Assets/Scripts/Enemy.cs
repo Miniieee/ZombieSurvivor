@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-[SerializeField] private float speed;
-    [SerializeField] private float health;
+    [SerializeField] private float speed;
+    [SerializeField] private int health;
     [SerializeField] private EnemySO enemySO;
     private Player player;
     private SpriteRenderer enemySpriteRenderer;
-    private bool isSelected = false;
 
     void Start()
     {
@@ -37,28 +36,20 @@ public class Enemy : MonoBehaviour
         transform.localScale = new Vector3(Mathf.Sign(dirNormalized.x), 1f, 1f);
     }
 
-    public void GetDamage(float _damage)
+    public void GetDamage(int _damage)
     {
         health -= _damage;
+        Debug.Log("Damaged");
         CheckHealth();
     }
 
-    private void CheckHealth(){
+    private void CheckHealth()
+    {
+        Debug.Log("Started Checking health");
         if (health <= Mathf.Epsilon)
         {
+            Debug.Log("Destroyed gameobject");
             Destroy(gameObject);
-        } else
-        {
-            isSelected = false;
         }
-    }
-
-    public void SetSelectedState()
-    {   
-        isSelected = true;
-    }
-    public bool GetSelectedStatus(){
-        
-        return isSelected;
     }
 }
