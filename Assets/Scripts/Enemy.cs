@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer enemySpriteRenderer;
     private TextMeshProUGUI damageText;
     private Vector3 newLocalScale;
+    private int sumDamage = 0;
 
     void Start()
     {
@@ -41,7 +42,8 @@ public class Enemy : MonoBehaviour
     public void GetDamage(int _damage)
     {
         health -= _damage;
-        damageText.text = _damage.ToString();
+        sumDamage += _damage;
+        damageText.text = sumDamage.ToString();
         Debug.Log("Damaged");
         CheckHealth();
     }
