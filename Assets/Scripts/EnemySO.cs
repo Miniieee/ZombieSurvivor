@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemySO : ScriptableObject
 {
     public Sprite enemySprite;
-    public float enemyHelath;
+    public int enemyHelath;
     public float enemyDamage;
     public float enemySpeed;
 

@@ -6,8 +6,7 @@ public class Player : MonoBehaviour
 {
     private PlayerMovement playerMovement;
     [SerializeField] private float playerSpeed;
-
-
+    
     /*TODO
         - Get a collider
         - Enemies collides
@@ -27,4 +26,5 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3(movementVectorNormalized.x, movementVectorNormalized.y, 0f);
         transform.position += direction * Time.deltaTime * playerSpeed;
     }
+
 }
