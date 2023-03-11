@@ -7,8 +7,10 @@ public class PlayerSkillsRadiusDamage : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private float detectionRadius;
     [SerializeField] private int damage;
+    [SerializeField] private Transform radiusVisualSize;
 
     private void Start() {
+        radiusVisualSize.localScale = new Vector3(2 * detectionRadius,2 * detectionRadius, 1f);
         StartCoroutine(PulsingDamage());
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayer);
     }

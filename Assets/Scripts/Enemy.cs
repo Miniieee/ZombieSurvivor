@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,11 +10,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemySO enemySO;
     private Player player;
     private SpriteRenderer enemySpriteRenderer;
+    private TextMeshProUGUI damageText;
+    private Vector3 newLocalScale;
 
     void Start()
     {
         player = FindObjectOfType<Player>();
         enemySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        damageText = GetComponentInChildren<TextMeshProUGUI>();
         enemySpriteRenderer.sprite = enemySO.enemySprite;
         speed = enemySO.enemySpeed;
         health = enemySO.enemyHelath;
@@ -23,22 +27,21 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-
         TurnSpriteToMovementDirection();
-        
     }
 
     private void TurnSpriteToMovementDirection()
     {
         Vector3 dir = player.transform.position - transform.position;
         Vector3 dirNormalized = dir.normalized;
-
-        transform.localScale = new Vector3(Mathf.Sign(dirNormalized.x), 1f, 1f);
+        newLocalScale = new Vector3(Mathf.Sign(dirNormalized.x), 1f, 1f);
+        enemySpriteRenderer.transform.localScale = newLocalScale;
     }
 
     public void GetDamage(int _damage)
     {
         health -= _damage;
+        damageText.text = _damage.ToString();
         Debug.Log("Damaged");
         CheckHealth();
     }
