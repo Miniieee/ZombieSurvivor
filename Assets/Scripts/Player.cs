@@ -26,5 +26,5 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3(movementVectorNormalized.x, movementVectorNormalized.y, 0f);
         transform.position += direction * Time.deltaTime * playerSpeed;
     }
-
+    
 }

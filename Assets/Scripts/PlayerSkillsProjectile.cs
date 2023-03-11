@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSkillsProjectile : MonoBehaviour
 {
-    [SerializeField] private Projectile projectile;
+    [SerializeField] private GameObject projectile;
 
     private void Start() {
         StartCoroutine(SpawnProjectile());
